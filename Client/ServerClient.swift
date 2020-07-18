@@ -11,11 +11,11 @@ import Foundation
 class ServerClient {
 
  func getCountaryData(completionHandler: ((CountaryModel, Int, Error?) -> Void)? = nil) {
-      guard let gitUrl = URL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json") else { return }
-    guard NSURLComponents(url: gitUrl, resolvingAgainstBaseURL: false) != nil else {
+    guard let urlPath = URL(string: UrlPath.path) else { return }
+    guard NSURLComponents(url: urlPath, resolvingAgainstBaseURL: false) != nil else {
                    return
         }
-    var request = URLRequest(url: gitUrl)
+    var request = URLRequest(url: urlPath)
     request.httpMethod = "GET"
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
     let task = URLSession.shared.dataTask(with: request) { data, response, error in

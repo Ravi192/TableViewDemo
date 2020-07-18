@@ -13,7 +13,6 @@ struct CountaryModel: Codable {
     var title: String?
     var rows: [Rows]
 }
-
 //// MARK: - Row
 struct Rows: Codable {
     let title: String?
